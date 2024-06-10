@@ -2,7 +2,7 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["MortgageLoanCalculator/MortgageLoanCalculator/MortgageLoanCalculator.csproj", "MortgageLoanCalculator/"]
+COPY ["MortgageLoanCalculator/MortgageLoanCalculator.csproj", "MortgageLoanCalculator/"]
 RUN dotnet restore "./MortgageLoanCalculator/MortgageLoanCalculator.csproj"
 COPY . .
 WORKDIR "/src/MortgageLoanCalculator"
