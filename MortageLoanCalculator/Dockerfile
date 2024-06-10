@@ -2,11 +2,11 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["MortgageLoanCalculator.csproj", "."]
+COPY ["/MortgageLoanCalculator/MortgageLoanCalculator.csproj", "MortgageLoanCalculator/."]
 RUN dotnet restore "./MortgageLoanCalculator.csproj"
 COPY . .
-WORKDIR "/src/."
-RUN dotnet build "MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "MortgageLoanCalculator/src/."
+RUN dotnet build "MortgageLoanCalculator/MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Publish the application
 FROM build AS publish
