@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.34928.147
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortgageLoanCalculator", "MortageLoanCalculator\MortgageLoanCalculator.csproj", "{58944F98-69A7-4627-9B6C-9C3AC3191A94}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MortgageLoanCalculator", "MortgageLoanCalculator.csproj", "{58944F98-69A7-4627-9B6C-9C3AC3191A94}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
