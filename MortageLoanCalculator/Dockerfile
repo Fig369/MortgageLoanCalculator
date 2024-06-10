@@ -5,7 +5,7 @@ WORKDIR /src
 COPY ["MortgageLoanCalculator.csproj", "."]
 RUN dotnet restore "./MortgageLoanCalculator.csproj"
 COPY . .
-WORKDIR "/src/MortgageLoanCalculator"
+WORKDIR "/src/."
 RUN dotnet build "MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Publish the application
