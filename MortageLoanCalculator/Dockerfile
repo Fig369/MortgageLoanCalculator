@@ -2,16 +2,16 @@
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["MortgageLoanCalculator/MortgageLoanCalculator.csproj", "MortgageLoanCalculator/"]
-RUN dotnet restore "./MortgageLoanCalculator/MortgageLoanCalculator.csproj"
+COPY ["MortgageLoanCalculator.csproj", "."]
+RUN dotnet restore "./MortgageLoanCalculator.csproj"
 COPY . .
 WORKDIR "/src/MortgageLoanCalculator"
-RUN dotnet build "./MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Publish the application
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "MortgageLoanCalculator.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # Use .NET 6.0 as the base image for the final stage
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS final
